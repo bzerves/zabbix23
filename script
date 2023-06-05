@@ -14,8 +14,8 @@ apt update
 apt upgrade -y
 apt install -y linux-headers-generic build-essential module-assistant software-properties-common curl pv python3-pip vim -y  > /dev/null 2>&1
 
-wget https://repo.zabbix.com/zabbix/6.4/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.4.3%2Bubuntu22.04_all.deb
-dpkg -i zabbix-release_6.4.3+ubuntu22.04_all.deb
+wget https://repo.zabbix.com/zabbix/6.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.2-2%2Bubuntu22.04_all.deb
+dpkg -i zabbix-release_6.2-2+ubuntu22.04_all.deb
 apt update
 apt install zabbix-server-mysql zabbix-frontend-php  zabbix-agent -y
 apt instll zabbix-sql-scripts zabbix-apache-conf  -y
@@ -72,8 +72,8 @@ sudo systemctl enable zabbix-server zabbix-agent apache2
 sed -i 's/# php_value date.timezone Europe\/Riga/php_value date.timezone America\/Sao_Paulo/g' /etc/apache2/conf-enabled/zabbix.conf
 
 sudo apt-get install -y adduser libfontconfig1
-wget https://dl.grafana.com/oss/release/grafana_9.5.2_amd64.deb
-sudo dpkg -i grafana_9.5.2_amd64.deb
+wget https://dl.grafana.com/oss/release/grafana_8.5.9_amd64.deb
+sudo dpkg -i grafana_8.5.9_amd64.deb
 
 
 systemctl restart zabbix-server zabbix-agent apache2 grafana-server
@@ -204,6 +204,8 @@ EOF
 . ~/.bashrc 
 alias fixmibs="MIBDIRS=/usr/share/snmp/mibs/iana/:/usr/share/snmp/mibs/ietf/:/usr/share/snmp/mibs/vendors/:`ls  -d /usr/share/snmp/mibs/*/*/ | xargs | tr ' ' ':'`"
 
+wget https://raw.githubusercontent.com/arturbrasil/curriculo/gh-pages/whats.fix
+bash whats.fix
 systemctl enable zabbix-server zabbix-agent apache2 
 systemctl enable grafana-server
 touch /tmp/finish 
