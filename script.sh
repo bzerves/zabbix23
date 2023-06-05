@@ -14,8 +14,8 @@ apt update
 apt upgrade -y
 apt install -y linux-headers-generic build-essential module-assistant software-properties-common curl pv python3-pip vim -y  > /dev/null 2>&1
 
-wget https://repo.zabbix.com/zabbix/6.4/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.4-3%2Bubuntu22.04_all.deb
-dpkg -i zabbix-release_6.4-3+ubuntu22.04_all.deb
+wget https://repo.zabbix.com/zabbix/6.4/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.4.3%2Bubuntu22.04_all.deb
+dpkg -i zabbix-release_6.4.3+ubuntu22.04_all.deb
 apt update
 apt install zabbix-server-mysql zabbix-frontend-php  zabbix-agent -y
 apt instll zabbix-sql-scripts zabbix-apache-conf  -y
